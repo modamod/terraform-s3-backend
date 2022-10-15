@@ -11,3 +11,8 @@ output "table" {
   value = aws_dynamodb_table.locK_table
   description = "Dynamodb table used for locking when applying configration"
 }
+
+output "terraform_config" {
+  value = data.template_file.terraform_config_template.rendered
+  description = "Terraform backend configuration file content"
+}
