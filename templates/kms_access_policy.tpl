@@ -14,7 +14,7 @@
             "Sid": "Allow access for Key Administrators",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::${account_id}:user/${user}"
+                "AWS": "${principle}"
             },
             "Action": [
                 "kms:Create*",
@@ -38,7 +38,7 @@
             "Sid": "Allow use of the key",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::${account_id}:user/${user}"
+                "AWS": "${principle}"
             },
             "Action": [
                 "kms:Encrypt",
@@ -53,7 +53,7 @@
             "Sid": "Allow attachment of persistent resources",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::${account_id}:user/${user}"
+                "AWS": "${principle}"
             },
             "Action": [
                 "kms:CreateGrant",

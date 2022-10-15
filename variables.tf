@@ -1,36 +1,12 @@
 variable "tags" {
   type = map(string)
-}
-variable "vpc_cidr" {
-  type = string
-}
 
-variable "azs" {
-  type = list(string)
 }
-
-variable "key_name" {
-  type = string
-}
-
-variable "ami_id" {
-  type = string
-}
-
-variable "instance_type" {
-  type = string
-}
-variable "asg_name" {
-  type = string
-}
-
 variable "tf_state_bucket" {
   type = string
+  description = "Bucket name to store terraform state file"
 }
 
-variable "user" {
-  type = string
-}
 variable "profile" {
   type = string
   description = "Profile to use to access remote backend bucket and dynamodb lock table"
@@ -43,7 +19,15 @@ variable "region" {
 
 variable "tf_state_lock_table" {
   type = string
+  default = "Dynamodb table name to store the lock information."
 }
 variable "tf_state_key" {
   type = string
+  description = "Terraform state key to store in the s3 bucket."
+}
+
+variable "version_retention_period" {
+  type = number
+  default = 15
+  description = "Number of days to retain pervious state versions, defaults to 15 days"
 }
